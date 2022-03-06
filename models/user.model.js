@@ -19,9 +19,13 @@ UserModel.init({
     Edad: {
         type: DataTypes.INTEGER
     },
-    Fecha:{
-        type: DataTypes.STRING
-    }
+    updatedAt: {
+        type: DataTypes.INTEGER
+    },
+    createdAt: {
+        type: DataTypes.INTEGER
+    },
+   
 
 
 },{
