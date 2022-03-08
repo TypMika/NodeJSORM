@@ -1,18 +1,6 @@
 import {UserModel} from '../models/user.model.js'
 class UserController{
-    async sayHello(request,response){
-        return response.status(200).json({
-            ok:true,
-            message: 'Hello'
-        });
-    }
 
-    async sayHolaMundo(request,response){
-        return response.status(200).json({
-            ok:true,
-            message: 'Hola mundo'
-        });
-    }
 
     async getUsers(request,response){
 
@@ -29,6 +17,25 @@ class UserController{
             });
         }
     }
+
+    async createUser(request,response){
+      
+        try {
+            const users = await UserModel.create(request.body)
+            return response.status(200).json({
+                ok:true,
+                data:users,
+                message: "User created correctly"
+            })
+        } catch (e){
+            return response.status(500).json({
+                ok:false,
+                error: e
+            });
+        }
+    }
+
+    
 }
 
 

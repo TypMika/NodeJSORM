@@ -10,13 +10,13 @@ UserModel.init({
         primaryKey:true,
         autoIncrement: true
     },
-    Nombre: {
+    userName: {
         type: DataTypes.STRING
     },
-    Apellido:{
+    email:{
         type: DataTypes.STRING
     },
-    Edad: {
+    password: {
         type: DataTypes.INTEGER
     },
     updatedAt: {

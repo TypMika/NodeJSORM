@@ -2,6 +2,7 @@ import express from "express";
 import dotenv from 'dotenv';
 import {Routes} from '../routes/routes.js'
 import {Database} from './database.js'
+import cors from 'cors';
 
 //Inicializar el enviroment
 dotenv.config();
@@ -24,6 +25,7 @@ class App {
     }
 
     config(){
+        this.app.use(cors({origin:"*"}));
         this.app.use(
             express.urlencoded({
                 extended:true

@@ -5,9 +5,9 @@ export class Routes {
   routes(app = express.application) {
 
 
-    app.get('/e',userController.sayHello)
-    app.get('/data',userController.sayHolaMundo)
-    app.get('/',userController.getUsers)
+
+    app.post('/api/create-user',userController.createUser)
+
 
   }
 }
