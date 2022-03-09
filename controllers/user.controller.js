@@ -1,3 +1,4 @@
+
 import {UserModel} from '../models/user.model.js'
 class UserController{
 
@@ -27,6 +28,33 @@ class UserController{
                 data:users,
                 message: "User created correctly"
             })
+        } catch (e){
+            return response.status(500).json({
+                ok:false,
+                error: e
+            });
+        }
+    }
+
+    async signIn(request,response){
+      
+        try {
+            const user = await UserModel.findOne({where: {
+                email: request.body.email
+            } })
+
+            if(user){
+                if (await request.body.password === await user.password){
+                    response.json({
+                        error: 'Logged succesfully'
+                    })
+                }
+            }else{
+                response.json({
+                    error: 'Error en usuario o contrasena'
+                })
+            }
+            
         } catch (e){
             return response.status(500).json({
                 ok:false,

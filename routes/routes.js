@@ -1,4 +1,4 @@
-import express from "express";
+
 import {userController} from "../controllers/user.controller.js"
 
 export class Routes {
@@ -7,6 +7,7 @@ export class Routes {
 
 
     app.post('/api/create-user',userController.createUser)
+    app.post('/api/login',userController.signIn)
 
 
   }
