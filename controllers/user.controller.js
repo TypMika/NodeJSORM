@@ -38,7 +38,7 @@ class UserController{
 
     async signIn(request,response){
       
-        try {
+        try { 
             const user = await UserModel.findOne({where: {
                 email: request.body.email
             } })
@@ -46,7 +46,11 @@ class UserController{
             if(user){
                 if (await request.body.password === await user.password){
                     response.json({
-                        error: 'Logged succesfully'
+                        message: 'Logged succesfully'
+                    })
+                }else{
+                    response.json({
+                        error: 'Error en usuario o contrasena'
                     })
                 }
             }else{
