@@ -45,12 +45,14 @@ class UserController{
 
             if(user){
                 if (await request.body.password === await user.password){
-                    response.json({
-                        message: 'Logged succesfully'
+                    response.status(200).json({
+                        ok:true,
+                        message: 'User logged correctly',
+                        user: user
                     })
                 }else{
                     response.json({
-                        error: 'Error en usuario o contrasena'
+                        error: 'Error en usuario o contrasenassssssssssss'
                     })
                 }
             }else{

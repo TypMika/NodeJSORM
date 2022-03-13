@@ -25,6 +25,13 @@ UserModel.init({
     createdAt: {
         type: DataTypes.INTEGER
     },
+    socket_id:{
+        type:  DataTypes.STRING
+
+    },
+    online: {
+        type: DataTypes.BOOLEAN
+    }
    
 
 
